@@ -1,0 +1,154 @@
+// src/app/dashboard/dashboard.component.scss
+$background-dark: #121212;
+$background-darker: #1e1e1e;
+$primary: #bb86fc;
+$primary-variant: #3700b3;
+$secondary: #03dac6;
+$accent: #ff7597;
+$error: #cf6679;
+$text-primary: #e1e1e1;
+$text-secondary: #a1a1a1;
+$divider: rgba(255, 255, 255, 0.12);
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 2rem;
+  background-color: $background-dark;
+  color: $text-primary;
+  font-family: 'Roboto', sans-serif;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    animation: fadeIn 0.5s ease-out;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      margin: 0;
+      color: $primary;
+    }
+  }
+
+  .table-container {
+    flex: 1;
+    overflow: auto;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    animation: slideUp 0.5s ease-out;
+
+       @media (min-width: 900px) {
+      overflow-x: hidden; // Prevent horizontal scrolling
+      width: 100%;
+      
+      table {
+        width: 100%;
+        table-layout: fixed; // Ensures equal column distribution
+      }
+
+      // Adjust column widths if needed
+      .mat-column-name {
+        width: 40%;
+      }
+
+      .mat-column-version {
+        width: 30%;
+      }
+
+      .mat-column-actions {
+        width: 30%;
+      }
+    }
+  
+    table {
+      width: 100%;
+      background-color: $background-darker;
+
+      th {
+        font-size: 1rem;
+        font-weight: 500;
+        color: $text-primary;
+        background-color: $background-darker;
+      }
+
+      td {
+        color: $text-secondary;
+      }
+
+      .table-row {
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: rgba($primary, 0.1);
+          transform: translateX(4px);
+        }
+      }
+    }
+  }
+
+  .add-button {
+    background-color: $primary;
+    color: white;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  .delete-button {
+    color: $error;
+
+    &:hover {
+      background-color: rgba($error, 0.1);
+    }
+  }
+
+  .launch-button {
+    background-color: $accent;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+
+    &:hover {
+      background-color: darken($accent, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba($accent, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba($accent, 0); }
+  100% { box-shadow: 0 0 0 0 rgba($accent, 0); }
+}
+

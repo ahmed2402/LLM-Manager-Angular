@@ -1,1 +1,30 @@
-/* You can add global styles to this file, and also import other style files */
+// src/styles.scss
+// Color palette
+$background-dark: #121212;
+$background-darker: #1e1e1e;
+$primary: #bb86fc;
+$primary-variant: #3700b3;
+$secondary: #03dac6;
+$accent: #ff7597;
+$error: #cf6679;
+$text-primary: #e1e1e1;
+$text-secondary: #a1a1a1;
+$divider: rgba(255, 255, 255, 0.12);
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+// Override Material theme for dark mode
+.mat-mdc-dialog-container {
+  --mdc-dialog-container-color: #{$background-darker};
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: $background-dark;
+  color: $text-primary;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}

@@ -1,0 +1,42 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="dashboard-container">
+  <div class="header">
+    <h1>LLM Manager</h1>
+    <button mat-raised-button class="add-button" (click)="openAddDialog()">
+      <mat-icon>add</mat-icon> Add LLM
+    </button>
+  </div>
+
+  <div class="table-container">
+    <table mat-table [dataSource]="llms" class="mat-elevation-z8">
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <!-- Version Column -->
+      <ng-container matColumnDef="version">
+        <th mat-header-cell *matHeaderCellDef>Version</th>
+        <td mat-cell *matCellDef="let element">{{element.version}}</td>
+      </ng-container>
+
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button class="delete-button" (click)="removeLLM(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="table-row"></tr>
+    </table>
+  </div>
+
+  <button mat-raised-button class="launch-button" (click)="launchAll()">
+    <mat-icon>rocket_launch</mat-icon> Launch All LLMs
+  </button>
+</div>

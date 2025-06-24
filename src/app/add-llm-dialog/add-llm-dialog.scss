@@ -1,0 +1,45 @@
+// src/app/add-llm-dialog/add-llm-dialog.component.scss
+$background-dark: #121212;
+$background-darker: #1e1e1e;
+$primary: #bb86fc;
+$primary-variant: #3700b3;
+$secondary: #03dac6;
+$accent: #ff7597;
+$error: #cf6679;
+$text-primary: #e1e1e1;
+$text-secondary: #a1a1a1;
+$divider: rgba(255, 255, 255, 0.12);
+.dark-dialog {
+  background-color: $background-darker;
+  color: $text-primary;
+
+  .mat-dialog-title {
+    color: $primary;
+  }
+
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .mat-input-element {
+      color: $text-primary;
+    }
+
+    .mat-form-field-label {
+      color: $text-secondary;
+    }
+
+    .mat-form-field-underline {
+      background-color: $divider;
+    }
+  }
+
+  .mat-dialog-actions {
+    justify-content: flex-end;
+    padding: 1rem 0 0;
+  }
+}
+
+.full-width {
+  width: 100%;
+}
