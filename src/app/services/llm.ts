@@ -104,13 +104,14 @@ launchAllLLMs(): void {
 
   // If any tab was blocked, show a simple alert to the user
   if (someBlocked) {
-       alert(
-      'Some tabs could not be opened because your browser blocked popups.\n\n' +
-      'To fix this:\n' +
-      '1. Look for a popup-blocked message or icon near the address bar.\n' +
-      '2. Allow popups for this site.\n' +
-      '3. Click the button again to open all LLM tools.'
-    );
+      alert(
+        `Some tabs could not be opened because your browser blocked popups.\n\n` +
+        `Only the first LLM (${this.llms[0]?.name}) was opened; others were blocked.\n\n` +
+        `To fix this:\n` +
+        `1. Look for a popup-blocked message or icon near the address bar.\n` +
+        `2. Allow popups for this site.\n` +
+        `3. Click the button again to open all LLM tools.`
+      );
   }
 }
 }
